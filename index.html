@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Developer Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>My Game Portfolio</h1>
+  <p>Unity Game Developer | Programmer • Designer • Artist</p>
+</header>
+
+<section class="filters">
+  <button onclick="filterRole('all')">All</button>
+  <button onclick="filterRole('Programmer')">Programmer</button>
+  <button onclick="filterRole('Designer')">Designer</button>
+  <button onclick="filterRole('Artist')">Artist</button>
+</section>
+
+<section id="projects" class="grid"></section>
+
+<!-- DETAIL MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h2 id="mTitle"></h2>
+    <p id="mDesc"></p>
+    <p><b>Role:</b> <span id="mRoles"></span></p>
+    <iframe id="mVideo" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="projects.js"></script>
+</body>
+</html>
