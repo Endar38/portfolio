@@ -59,17 +59,15 @@
     <h2 class="section-header">VFX & Game Effects Portfolio</h2>
     <div class="artist-grid">
       <div class="card" data-modal="modal-vfx-unity">
-        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="Unity VFX Portfolio">
+        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="Unity VFX">
         <div class="card-info">
           <h3>Unity Game VFX Showcase</h3>
-          <p class="short-desc">Particle systems, impact frames, character abilities, environmental effects di Unity.</p>
+          <p class="short-desc">Particle systems, impact frames, character abilities di Unity.</p>
           <span class="role-badge">VFX Artist & Effects Designer</span>
         </div>
       </div>
-      <!-- Tambahkan card lain sesuai kebutuhan -->
+      <!-- Tambahkan card lain -->
     </div>
-
-    <!-- Tambahkan section Projects & 3D jika perlu -->
 
   </div>
 
@@ -84,7 +82,7 @@
     </div>
   </div>
 
-  <!-- Fullscreen Image -->
+  <!-- Fullscreen -->
   <div id="fullscreenModal" class="fullscreen-modal">
     <div class="fullscreen-content">
       <span class="fullscreen-close" id="closeFullscreen">×</span>
@@ -102,17 +100,20 @@
     const fsImg = document.getElementById('fullscreenImg');
     const closeFsBtn = document.getElementById('closeFullscreen');
 
-    // Data (contoh fokus ke video Unity, tambah lain jika perlu)
+    // Deteksi Edge untuk fallback mouseup
+    const isEdge = /Edg/.test(navigator.userAgent);
+    const clickEventType = isEdge ? 'mouseup' : 'click';
+
     const portfolioData = {
       'modal-vfx-unity': {
         title: 'Unity Game VFX Showcase',
         role: 'VFX Artist & Effects Designer',
-        desc: 'Demo reel efek visual di Unity Engine: skill karakter, impact frames, particle systems, lighting cinematic, dan sound integration.',
+        desc: 'Demo reel efek visual di Unity: skill karakter, impact frames, particle systems, lighting cinematic.',
         mainImg: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
         video: `
           <div class="video-container">
             <iframe 
-              src="https://www.youtube.com/embed/Qt4KOrRSQ3I?rel=0&amp;enablejsapi=1" 
+              src="https://www.youtube.com/embed/Qt4KOrRSQ3I?rel=0" 
               title="Unity VFX Portfolio" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
@@ -120,26 +121,30 @@
               referrerpolicy="strict-origin-when-cross-origin">
             </iframe>
           </div>
-          <p style="color:#666; font-size:0.9rem; margin-top:0.5rem;">Jika video tidak muncul, coba refresh atau nonaktifkan tracking prevention di Edge (Settings > Privacy > Tracking prevention → Basic).</p>
+          <p style="color:#666; font-size:0.9rem; margin-top:0.5rem; text-align:center;">
+            Jika video tidak muncul di Edge, coba set Tracking Prevention ke "Basic" di Settings > Privacy.
+          </p>
         `,
         gallery: [
           'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
           'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg'
         ],
         tools: ['Unity Engine', 'VFX Graph', 'Shader Graph', 'Particle System'],
-        achievement: '430.000+ views di YouTube • Inspirasi efek game modern.'
+        achievement: '430.000+ views • Inspirasi efek game.'
       }
-      // Tambah entry lain seperti 'modal-proj-1', 'modal-3d-1' dari versi sebelumnya
     };
 
-    // Event delegation untuk click card (lebih reliable di Edge)
-    document.addEventListener('click', function(e) {
+    // Event listener dengan fallback untuk Edge
+    document.addEventListener(clickEventType, function(e) {
       const card = e.target.closest('.card');
       if (!card) return;
 
       const modalId = card.dataset.modal;
       const data = portfolioData[modalId];
       if (!data) return;
+
+      // Debug: konfirmasi click terdeteksi
+      console.log('Card clicked:', modalId, 'Event type:', clickEventType);
 
       modalTitle.textContent = data.title;
 
@@ -168,7 +173,7 @@
       modalBody.innerHTML = html;
       modal.style.display = 'flex';
 
-      // Klik gambar fullscreen
+      // Fullscreen gambar
       modalBody.querySelectorAll('[data-fs]').forEach(img => {
         img.addEventListener('click', () => {
           fsImg.src = img.dataset.fs;
@@ -177,11 +182,10 @@
       });
     });
 
-    // Tutup modal
+    // Tutup modal & fullscreen
     closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
     modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // Tutup fullscreen
     closeFsBtn.addEventListener('click', () => fsModal.style.display = 'none');
     fsModal.addEventListener('click', e => { if (e.target === fsModal) fsModal.style.display = 'none'; });
   </script>
