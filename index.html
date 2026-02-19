@@ -5,68 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portofolio - ENDAR</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:system-ui, sans-serif; background:#f9f9fc; color:#1e1e2e; line-height:1.6; }
-    header.profile-header { background:linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color:white; text-align:center; padding:4.5rem 1rem 3.5rem; }
-    .profile-header h1 { font-size:clamp(2.2rem,6vw,3.2rem); margin-bottom:0.4rem; }
-    .profile-header .role { font-size:clamp(1.1rem,4vw,1.4rem); opacity:0.9; font-weight:300; }
-    .container { max-width:1200px; margin:-2.5rem auto 4rem; padding:0 1rem; }
-    h2.section-header { font-size:clamp(1.8rem,5vw,2.4rem); color:#111827; margin:3.5rem 0 1.8rem; text-align:center; position:relative; }
-    .section-header::after { content:''; display:block; width:60px; height:4px; background:#6366f1; margin:0.8rem auto 0; border-radius:2px; }
-    .projects-grid, .artist-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.6rem; }
-    .card { background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); transition:all 0.28s ease; cursor:pointer; }
-    .card:hover { transform:translateY(-8px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
-    .card img { width:100%; height:220px; object-fit:cover; display:block; }
-    .card-info { padding:1.3rem; }
-    .card-info h3 { font-size:1.28rem; margin-bottom:0.5rem; color:#111827; }
-    .card-info .short-desc { color:#4b5563; font-size:0.92rem; margin-bottom:0.9rem; }
-    .role-badge { display:inline-block; background:#e0f2fe; color:#0369a1; padding:0.35rem 0.85rem; border-radius:999px; font-size:0.82rem; font-weight:600; }
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; overflow-y:auto; padding:1.5rem 1rem; align-items:flex-start; justify-content:center; pointer-events:auto; }
-    .modal-content { background:white; width:100%; max-width:980px; border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3); pointer-events:auto; }
-    .modal-header { background:#f0f4ff; padding:1.6rem; text-align:center; position:relative; }
-    .modal-header h2 { font-size:1.9rem; margin:0; }
-    .modal-close { position:absolute; top:1.2rem; right:1.4rem; font-size:2.4rem; color:#4b5563; cursor:pointer; line-height:1; }
-    .modal-close:hover { color:#111; }
-    .modal-body { padding:2rem; }
-    .main-img { width:100%; border-radius:12px; margin-bottom:1.8rem; cursor:pointer; transition:transform 0.3s; }
-    .main-img:hover { transform:scale(1.015); }
-    .video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; margin:1.5rem 0; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
-    .video-container iframe { position:absolute; inset:0; width:100%; height:100%; }
-    .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; margin:1.8rem 0; }
-    .gallery img { width:100%; border-radius:10px; cursor:pointer; transition:all 0.3s; }
-    .gallery img:hover { transform:scale(1.06); box-shadow:0 6px 16px rgba(0,0,0,0.15); }
-    .detail-item { margin:1.6rem 0; }
-    .detail-item h3 { font-size:1.2rem; color:#374151; margin-bottom:0.7rem; }
-    .tech-tags { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:0.8rem; }
-    .tech-tag { background:#f3f4f6; color:#4b5563; padding:0.45rem 1rem; border-radius:999px; font-size:0.88rem; }
-    .fullscreen-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:2000; justify-content:center; align-items:center; padding:1rem; }
-    .fullscreen-content { position:relative; max-width:95%; max-height:95%; }
-    .fullscreen-img { max-width:100%; max-height:90vh; object-fit:contain; }
-    .fullscreen-close { position:absolute; top:-2rem; right:-2rem; font-size:3rem; color:white; cursor:pointer; }
-    @media (max-width:768px) { .profile-header {padding:3.5rem 1rem 2.5rem;} .container {margin:-1.8rem auto 3rem; padding:0 0.8rem;} .projects-grid,.artist-grid {grid-template-columns:1fr; gap:1.3rem;} .card img {height:200px;} .modal {padding:1rem 0.5rem;} .modal-content {width:96%;} .modal-body {padding:1.6rem;} .gallery {grid-template-columns:repeat(auto-fill,minmax(130px,1fr));} }
-    @media (max-width:480px) { .modal-header h2 {font-size:1.6rem;} .modal-close {font-size:2rem; right:1rem; top:1rem;} }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Header Profile */
+    .profile-header {
+      background: linear-gradient(135deg, #312e81 0%, #5b21b6 100%);
+      color: #f8fafc;
+      text-align: center;
+      padding: 5rem 1rem 4rem;
+    }
+
+    .profile-header h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-header .role {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    /* Container utama */
+    .container {
+      max-width: 1200px;
+      margin: -3rem auto 4rem;
+      padding: 0 1.2rem;
+    }
+
+    /* Section Header */
+    .section-header {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: #f1f5f9;
+      margin: 4rem 0 1.8rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-header::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #6366f1;
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Grid */
+    .projects-grid,
+    .artist-grid,
+    .vfx-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid #334155;
+    }
+
+    .card-info {
+      padding: 1.4rem;
+    }
+
+    .card-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      color: #f1f5f9;
+    }
+
+    .card-info .short-desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .role-badge {
+      display: inline-block;
+      background: #312e81;
+      color: #a5b4fc;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      max-width: 900px;
+      width: 90%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .modal-header {
+      background: #334155;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-header h2 {
+      font-size: 2.1rem;
+      margin-bottom: 0.6rem;
+      color: #f1f5f9;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      color: #94a3b8;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: #f1f5f9;
+    }
+
+    .modal-body {
+      padding: 2.5rem;
+    }
+
+    .modal-body .main-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .detail-item {
+      margin: 1.8rem 0;
+    }
+
+    .detail-item h3 {
+      color: #cbd5e1;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: #334155;
+      color: #a5b4fc;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    /* Fullscreen Image Viewer */
+    .fullscreen-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .fullscreen-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .fullscreen-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .fullscreen-close {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .profile-header h1 { font-size: 2.5rem; }
+      .container { margin: -2rem auto; padding: 0 1rem; }
+      .projects-grid, .artist-grid, .vfx-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .card img { height: 200px; }
+      .modal-body { padding: 2rem 1.5rem; }
+      .gallery { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Header Profil -->
   <header class="profile-header">
     <h1>ENDAR</h1>
-    <div class="role">Full-Stack Developer • 3D Artist • VFX & Game Effects Creator</div>
+    <div class="role">Full-Stack Developer & UI/UX Enthusiast</div>
   </header>
 
   <div class="container">
 
-    <h2 class="section-header">VFX & Game Effects Portfolio</h2>
-    <div class="artist-grid">
-      <div class="card" data-modal="modal-vfx-unity">
-        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="Unity VFX">
+    <!-- Section Projects -->
+    <h2 class="section-header">Projects</h2>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="card" data-modal="modal-proj-1">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Project 1">
         <div class="card-info">
-          <h3>Unity Game VFX Showcase</h3>
-          <p class="short-desc">Particle systems, impact frames, character abilities di Unity.</p>
-          <span class="role-badge">VFX Artist & Effects Designer</span>
+          <h3>E-Commerce Fashion Platform</h3>
+          <p class="short-desc">Marketplace fashion dengan fitur rekomendasi personal dan live selling.</p>
+          <span class="role-badge">Lead Full-Stack Developer</span>
         </div>
       </div>
-      <!-- Tambahkan card lain -->
+
+      <!-- Tambahkan project lain -->
+
+    </div>
+
+    <!-- Section 3D Artist -->
+    <h2 class="section-header">3D Artist Portfolio</h2>
+    <div class="artist-grid">
+
+      <!-- 3D Work 1 -->
+      <div class="card" data-modal="modal-3d-1">
+        <img src="https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=800" alt="3D Work 1">
+        <div class="card-info">
+          <h3>Futuristic Cityscape</h3>
+          <p class="short-desc">Model kota futuristik dengan detail arsitektur tinggi dan lighting dinamis.</p>
+          <span class="role-badge">3D Modeler & Texturer</span>
+        </div>
+      </div>
+
+      <!-- Tambahkan 3D lain -->
+
+    </div>
+
+    <!-- Section VFX -->
+    <h2 class="section-header">VFX Portfolio</h2>
+    <div class="vfx-grid">
+
+      <!-- VFX Work 1 -->
+      <div class="card" data-modal="modal-vfx-1">
+        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=800" alt="VFX Work 1">
+        <div class="card-info">
+          <h3>Explosion Sequence</h3>
+          <p class="short-desc">Efek ledakan realistis dengan partikel api dan debu untuk film pendek.</p>
+          <span class="role-badge">VFX Compositor & Simulator</span>
+        </div>
+      </div>
+
+      <!-- VFX Work 2 (dengan video sample) -->
+      <div class="card" data-modal="modal-vfx-2">
+        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="VFX Work 2">
+        <div class="card-info">
+          <h3>Unity Game VFX Showcase</h3>
+          <p class="short-desc">Showcase efek visual game di Unity: particles, impacts, abilities.</p>
+          <span class="role-badge">VFX Artist & Animator</span>
+        </div>
+      </div>
+
+      <!-- Tambahkan VFX lain -->
+
     </div>
 
   </div>
@@ -76,118 +367,162 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="modalTitle"></h2>
-        <span class="modal-close" id="closeModal">×</span>
+        <span class="modal-close" id="closeModal">&times;</span>
       </div>
       <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
-  <!-- Fullscreen -->
+  <!-- Fullscreen Image Modal -->
   <div id="fullscreenModal" class="fullscreen-modal">
     <div class="fullscreen-content">
-      <span class="fullscreen-close" id="closeFullscreen">×</span>
-      <img id="fullscreenImg" class="fullscreen-img" src="" alt="Fullscreen">
+      <span class="fullscreen-close" id="closeFullscreen">&times;</span>
+      <img id="fullscreenImg" class="fullscreen-img" src="" alt="Fullscreen Image">
     </div>
   </div>
 
   <script>
+    const cards = document.querySelectorAll('.card');
     const modal = document.getElementById('projectModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     const closeModalBtn = document.getElementById('closeModal');
 
-    const fsModal = document.getElementById('fullscreenModal');
-    const fsImg = document.getElementById('fullscreenImg');
-    const closeFsBtn = document.getElementById('closeFullscreen');
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenImg = document.getElementById('fullscreenImg');
+    const closeFullscreenBtn = document.getElementById('closeFullscreen');
 
-    // Deteksi Edge untuk fallback mouseup
-    const isEdge = /Edg/.test(navigator.userAgent);
-    const clickEventType = isEdge ? 'mouseup' : 'click';
-
-    const portfolioData = {
-      'modal-vfx-unity': {
+    // Data detail project/role
+    const detailsData = {
+      'modal-proj-1': {
+        title: 'E-Commerce Fashion Platform',
+        role: 'Lead Full-Stack Developer',
+        description: 'Membangun marketplace fashion modern dengan fitur rekomendasi berbasis AI, live streaming penjualan, sistem pembayaran multiple gateway, dan dashboard penjual yang powerful.',
+        mainImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
+        gallery: [
+          'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600',
+          'https://images.unsplash.com/photo-1551650975-60cb5c8b0c7e?w=600'
+        ],
+        technologies: ['Next.js', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'Redis'],
+        achievement: 'Meningkatkan konversi 38% dalam 4 bulan pertama setelah launch.'
+      },
+      'modal-3d-1': {
+        title: 'Futuristic Cityscape',
+        role: '3D Modeler & Texturer',
+        description: 'Proyek ini melibatkan pembuatan model kota futuristik lengkap dengan gedung-gedung tinggi, kendaraan terbang, dan elemen lingkungan. Fokus pada detail tekstur PBR dan optimalisasi untuk rendering real-time.',
+        mainImage: 'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=1200',
+        gallery: [
+          'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=600',
+          'https://images.unsplash.com/photo-1581091012184-7e0d5a25829e?w=600',
+          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600'
+        ],
+        technologies: ['Blender', 'Substance Painter', 'Unreal Engine', 'Quixel Mixer'],
+        achievement: 'Dipamerkan di konferensi game indie dan mendapat feedback positif dari 500+ pengunjung.'
+      },
+      'modal-vfx-1': {
+        title: 'Explosion Sequence',
+        role: 'VFX Compositor & Simulator',
+        description: 'Membuat urutan ledakan realistis untuk adegan aksi, termasuk simulasi api, asap, dan debris menggunakan particle system.',
+        mainImage: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=1200',
+        gallery: [
+          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600',
+          'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600',
+          'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=600'
+        ],
+        technologies: ['Houdini', 'Nuke', 'After Effects', 'Phoenix FD'],
+        achievement: 'Digunakan di film pendek yang tayang di festival internasional.'
+      },
+      'modal-vfx-2': {
         title: 'Unity Game VFX Showcase',
-        role: 'VFX Artist & Effects Designer',
-        desc: 'Demo reel efek visual di Unity: skill karakter, impact frames, particle systems, lighting cinematic.',
-        mainImg: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
-        video: `
-          <div class="video-container">
-            <iframe 
-              src="https://www.youtube.com/embed/Qt4KOrRSQ3I?rel=0" 
-              title="Unity VFX Portfolio" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-              allowfullscreen 
-              referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-          </div>
-          <p style="color:#666; font-size:0.9rem; margin-top:0.5rem; text-align:center;">
-            Jika video tidak muncul di Edge, coba set Tracking Prevention ke "Basic" di Settings > Privacy.
-          </p>
-        `,
+        role: 'VFX Artist & Animator',
+        description: 'Showcase efek visual game di Unity, termasuk particle systems, impact frames, character abilities seperti healing dan summon, dengan timing cinematic.',
+        mainImage: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
+        videoEmbed: '<div class="video-container"><iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I" title="Unity VFX Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
         gallery: [
           'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
-          'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg'
+          'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg',
+          'https://img.youtube.com/vi/Qt4KOrRSQ3I/2.jpg'
         ],
-        tools: ['Unity Engine', 'VFX Graph', 'Shader Graph', 'Particle System'],
-        achievement: '430.000+ views • Inspirasi efek game.'
+        technologies: ['Unity', 'VFX Graph', 'Shader Graph', 'Particle System', 'After Effects'],
+        achievement: 'Mendapat 430k+ views di YouTube, inspirasi untuk developer game.'
       }
     };
 
-    // Event listener dengan fallback untuk Edge
-    document.addEventListener(clickEventType, function(e) {
-      const card = e.target.closest('.card');
-      if (!card) return;
+    // Buka modal
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        const modalId = this.getAttribute('data-modal');
+        const data = detailsData[modalId];
 
-      const modalId = card.dataset.modal;
-      const data = portfolioData[modalId];
-      if (!data) return;
-
-      // Debug: konfirmasi click terdeteksi
-      console.log('Card clicked:', modalId, 'Event type:', clickEventType);
-
-      modalTitle.textContent = data.title;
-
-      let html = `
-        <img class="main-img" src="${data.mainImg}" alt="${data.title}" data-fs="${data.mainImg}">
-        <div class="detail-item"><h3>Peran Saya</h3><p><strong>${data.role}</strong></p></div>
-        <div class="detail-item"><h3>Deskripsi</h3><p>${data.desc}</p></div>
-        ${data.video ? `<div class="detail-item"><h3>Video Showcase</h3>${data.video}</div>` : ''}
-        ${data.gallery?.length ? `
-          <div class="detail-item">
-            <h3>Galeri Tambahan</h3>
-            <div class="gallery">
-              ${data.gallery.map(src => `<img src="${src}" alt="Gallery" data-fs="${src}">`).join('')}
+        if (data) {
+          modalTitle.textContent = data.title;
+          
+          let html = `
+            <img class="main-img" src="${data.mainImage}" alt="${data.title}">
+            <div class="detail-item">
+              <h3>Peran Saya</h3>
+              <p><strong>${data.role}</strong></p>
             </div>
-          </div>
-        ` : ''}
-        <div class="detail-item">
-          <h3>Tools & Teknologi</h3>
-          <div class="tech-tags">
-            ${data.tools.map(t => `<span class="tech-tag">${t}</span>`).join('')}
-          </div>
-        </div>
-        <div class="detail-item"><h3>Pencapaian</h3><p>${data.achievement}</p></div>
-      `;
+            <div class="detail-item">
+              <h3>Deskripsi Project</h3>
+              <p>${data.description}</p>
+            </div>
+            ${data.videoEmbed ? `
+              <div class="detail-item">
+                <h3>Video Showcase</h3>
+                ${data.videoEmbed}
+              </div>
+            ` : ''}
+            <div class="detail-item">
+              <h3>Galeri Tambahan</h3>
+              <div class="gallery">
+                ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image">`).join('')}
+              </div>
+            </div>
+            <div class="detail-item">
+              <h3>Teknologi yang Digunakan</h3>
+              <div class="tech-tags">
+                ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+              </div>
+            </div>
+            <div class="detail-item">
+              <h3>Pencapaian Utama</h3>
+              <p>${data.achievement}</p>
+            </div>
+          `;
 
-      modalBody.innerHTML = html;
-      modal.style.display = 'flex';
+          modalBody.innerHTML = html;
+          modal.style.display = 'flex';
 
-      // Fullscreen gambar
-      modalBody.querySelectorAll('[data-fs]').forEach(img => {
-        img.addEventListener('click', () => {
-          fsImg.src = img.dataset.fs;
-          fsModal.style.display = 'flex';
-        });
+          // Klik gambar buka fullscreen
+          const images = modalBody.querySelectorAll('.main-img, .gallery img');
+          images.forEach(img => {
+            img.addEventListener('click', () => {
+              fullscreenImg.src = img.src;
+              fullscreenModal.style.display = 'flex';
+            });
+          });
+        }
       });
     });
 
-    // Tutup modal & fullscreen
-    closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
-    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+    // Tutup modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
 
-    closeFsBtn.addEventListener('click', () => fsModal.style.display = 'none');
-    fsModal.addEventListener('click', e => { if (e.target === fsModal) fsModal.style.display = 'none'; });
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+      if (e.target === fullscreenModal) {
+        fullscreenModal.style.display = 'none';
+      }
+    });
+
+    closeFullscreenBtn.addEventListener('click', () => {
+      fullscreenModal.style.display = 'none';
+    });
   </script>
 </body>
 </html>
