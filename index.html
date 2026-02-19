@@ -382,147 +382,149 @@
   </div>
 
   <script>
-    const cards = document.querySelectorAll('.card');
-    const modal = document.getElementById('projectModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const closeModalBtn = document.getElementById('closeModal');
+document.addEventListener("DOMContentLoaded", function () {
 
-    const fullscreenModal = document.getElementById('fullscreenModal');
-    const fullscreenImg = document.getElementById('fullscreenImg');
-    const closeFullscreenBtn = document.getElementById('closeFullscreen');
+  const cards = document.querySelectorAll('.card');
+  const modal = document.getElementById('projectModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const closeModalBtn = document.getElementById('closeModal');
 
-    // Data detail project/role
-    const detailsData = {
-      'modal-proj-1': {
-        title: 'E-Commerce Fashion Platform',
-        role: 'Lead Full-Stack Developer',
-        description: 'Membangun marketplace fashion modern dengan fitur rekomendasi berbasis AI, live streaming penjualan, sistem pembayaran multiple gateway, dan dashboard penjual yang powerful.',
-        mainImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
-        gallery: [
-          'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600',
-          'https://images.unsplash.com/photo-1551650975-60cb5c8b0c7e?w=600'
-        ],
-        technologies: ['Next.js', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'Redis'],
-        achievement: 'Meningkatkan konversi 38% dalam 4 bulan pertama setelah launch.'
-      },
-      'modal-3d-1': {
-        title: 'Futuristic Cityscape',
-        role: '3D Modeler & Texturer',
-        description: 'Proyek ini melibatkan pembuatan model kota futuristik lengkap dengan gedung-gedung tinggi, kendaraan terbang, dan elemen lingkungan. Fokus pada detail tekstur PBR dan optimalisasi untuk rendering real-time.',
-        mainImage: 'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=1200',
-        gallery: [
-          'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=600',
-          'https://images.unsplash.com/photo-1581091012184-7e0d5a25829e?w=600',
-          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600'
-        ],
-        technologies: ['Blender', 'Substance Painter', 'Unreal Engine', 'Quixel Mixer'],
-        achievement: 'Dipamerkan di konferensi game indie dan mendapat feedback positif dari 500+ pengunjung.'
-      },
-      'modal-vfx-1': {
-        title: 'Explosion Sequence',
-        role: 'VFX Compositor & Simulator',
-        description: 'Membuat urutan ledakan realistis untuk adegan aksi, termasuk simulasi api, asap, dan debris menggunakan particle system.',
-        mainImage: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=1200',
-        gallery: [
-          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600',
-          'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600',
-          'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=600'
-        ],
-        technologies: ['Houdini', 'Nuke', 'After Effects', 'Phoenix FD'],
-        achievement: 'Digunakan di film pendek yang tayang di festival internasional.'
-      },
-      'modal-vfx-2': {
-        title: 'Unity Game VFX Showcase',
-        role: 'VFX Artist & Animator',
-        description: 'Showcase efek visual game di Unity, termasuk particle systems, impact frames, character abilities seperti healing dan summon, dengan timing cinematic.',
-        mainImage: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
-        videoEmbed: '<div class="video-container"><iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I" title="Unity VFX Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
-        gallery: [
-          'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
-          'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg',
-          'https://img.youtube.com/vi/Qt4KOrRSQ3I/2.jpg'
-        ],
-        technologies: ['Unity', 'VFX Graph', 'Shader Graph', 'Particle System', 'After Effects'],
-        achievement: 'Mendapat 430k+ views di YouTube, inspirasi untuk developer game.'
+  const fullscreenModal = document.getElementById('fullscreenModal');
+  const fullscreenImg = document.getElementById('fullscreenImg');
+  const closeFullscreenBtn = document.getElementById('closeFullscreen');
+
+  // ===============================
+  // DATA PROJECT
+  // ===============================
+  const detailsData = {
+    'modal-proj-1': {
+      title: 'E-Commerce Fashion Platform',
+      role: 'Lead Full-Stack Developer',
+      description: 'Membangun marketplace fashion modern dengan fitur rekomendasi berbasis AI, live streaming penjualan, sistem pembayaran multiple gateway, dan dashboard penjual yang powerful.',
+      mainImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
+      gallery: [
+        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600',
+        'https://images.unsplash.com/photo-1551650975-60cb5c8b0c7e?w=600'
+      ],
+      technologies: ['Next.js', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'Redis'],
+      achievement: 'Meningkatkan konversi 38% dalam 4 bulan pertama setelah launch.'
+    },
+
+    'modal-vfx-2': {
+      title: 'Unity Game VFX Showcase',
+      role: 'VFX Artist & Animator',
+      description: 'Showcase efek visual game di Unity, termasuk particle systems, impact frames, character abilities seperti healing dan summon, dengan timing cinematic.',
+      mainImage: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
+      videoEmbed: `
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/Qt4KOrRSQ3I"
+            title="Unity VFX Portfolio"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `,
+      gallery: [
+        'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
+        'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg',
+        'https://img.youtube.com/vi/Qt4KOrRSQ3I/2.jpg'
+      ],
+      technologies: ['Unity', 'VFX Graph', 'Shader Graph', 'Particle System', 'After Effects'],
+      achievement: 'Mendapat 430k+ views di YouTube, inspirasi untuk developer game.'
+    }
+  };
+
+  // ===============================
+  // OPEN MODAL
+  // ===============================
+  cards.forEach(card => {
+    card.addEventListener('click', function () {
+      const modalId = this.dataset.modal;
+      const data = detailsData[modalId];
+
+      if (!data) return;
+
+      modalTitle.textContent = data.title;
+
+      let html = `
+        <img class="main-img" src="${data.mainImage}" alt="${data.title}">
+        <div class="detail-item">
+          <h3>Peran Saya</h3>
+          <p><strong>${data.role}</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Deskripsi Project</h3>
+          <p>${data.description}</p>
+        </div>
+      `;
+
+      if (data.videoEmbed) {
+        html += `
+          <div class="detail-item">
+            <h3>Video Showcase</h3>
+            ${data.videoEmbed}
+          </div>
+        `;
       }
-    };
 
-    // Buka modal
-    cards.forEach(card => {
-      card.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
-        const data = detailsData[modalId];
+      html += `
+        <div class="detail-item">
+          <h3>Galeri Tambahan</h3>
+          <div class="gallery">
+            ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image">`).join('')}
+          </div>
+        </div>
+        <div class="detail-item">
+          <h3>Teknologi yang Digunakan</h3>
+          <div class="tech-tags">
+            ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+          </div>
+        </div>
+        <div class="detail-item">
+          <h3>Pencapaian Utama</h3>
+          <p>${data.achievement}</p>
+        </div>
+      `;
 
-        if (data) {
-          modalTitle.textContent = data.title;
-          
-          let html = `
-            <img class="main-img" src="${data.mainImage}" alt="${data.title}">
-            <div class="detail-item">
-              <h3>Peran Saya</h3>
-              <p><strong>${data.role}</strong></p>
-            </div>
-            <div class="detail-item">
-              <h3>Deskripsi Project</h3>
-              <p>${data.description}</p>
-            </div>
-            ${data.videoEmbed ? `
-              <div class="detail-item">
-                <h3>Video Showcase</h3>
-                ${data.videoEmbed}
-              </div>
-            ` : ''}
-            <div class="detail-item">
-              <h3>Galeri Tambahan</h3>
-              <div class="gallery">
-                ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image">`).join('')}
-              </div>
-            </div>
-            <div class="detail-item">
-              <h3>Teknologi yang Digunakan</h3>
-              <div class="tech-tags">
-                ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-              </div>
-            </div>
-            <div class="detail-item">
-              <h3>Pencapaian Utama</h3>
-              <p>${data.achievement}</p>
-            </div>
-          `;
+      modalBody.innerHTML = html;
+      modal.style.display = 'flex';
 
-          modalBody.innerHTML = html;
-          modal.style.display = 'flex';
-
-          // Klik gambar buka fullscreen
-          const images = modalBody.querySelectorAll('.main-img, .gallery img');
-          images.forEach(img => {
-            img.addEventListener('click', () => {
-              fullscreenImg.src = img.src;
-              fullscreenModal.style.display = 'flex';
-            });
-          });
-        }
+      // Fullscreen Image Handler
+      const images = modalBody.querySelectorAll('.main-img, .gallery img');
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          fullscreenImg.src = img.src;
+          fullscreenModal.style.display = 'flex';
+        });
       });
     });
+  });
 
-    // Tutup modal
-    closeModalBtn.addEventListener('click', () => {
+  // ===============================
+  // CLOSE MODAL
+  // ===============================
+  closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  closeFullscreenBtn.addEventListener('click', () => {
+    fullscreenModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
       modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-      if (e.target === fullscreenModal) {
-        fullscreenModal.style.display = 'none';
-      }
-    });
-
-    closeFullscreenBtn.addEventListener('click', () => {
+    }
+    if (e.target === fullscreenModal) {
       fullscreenModal.style.display = 'none';
-    });
-  </script>
+    }
+  });
+
+});
+</script>
+
 </body>
 </html>
