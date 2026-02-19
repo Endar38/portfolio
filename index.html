@@ -12,43 +12,40 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f8f9fa;
-      color: #222;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f9f9fc;
+      color: #1e1e2e;
       line-height: 1.6;
     }
 
-    /* Header Profile */
-    .profile-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    header.profile-header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
       color: white;
       text-align: center;
-      padding: 4rem 1rem 3rem;
+      padding: 4.5rem 1rem 3.5rem;
     }
 
     .profile-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      margin-bottom: 0.4rem;
     }
 
     .profile-header .role {
-      font-size: 1.2rem;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
       opacity: 0.9;
       font-weight: 300;
     }
 
-    /* Container utama */
     .container {
       max-width: 1200px;
-      margin: -2rem auto 4rem;
+      margin: -2.5rem auto 4rem;
       padding: 0 1rem;
     }
 
-    /* Section Header */
-    .section-header {
-      font-size: 2rem;
-      color: #1a1a1a;
-      margin: 3rem 0 1.5rem;
+    h2.section-header {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      color: #111827;
+      margin: 3.5rem 0 1.8rem;
       text-align: center;
       position: relative;
     }
@@ -56,81 +53,73 @@
     .section-header::after {
       content: '';
       display: block;
-      width: 50px;
-      height: 3px;
-      background: #667eea;
-      margin: 0.6rem auto 0;
+      width: 60px;
+      height: 4px;
+      background: #6366f1;
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
     }
 
-    /* Project/Art Grid */
     .projects-grid,
     .artist-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 1.6rem;
     }
 
-    .project-card,
-    .art-card {
+    .card {
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: all 0.28s ease;
       cursor: pointer;
     }
 
-    .project-card:hover,
-    .art-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
     }
 
-    .project-card img,
-    .art-card img {
+    .card img {
       width: 100%;
       height: 220px;
       object-fit: cover;
-      border-bottom: 1px solid #eee;
+      display: block;
     }
 
-    .project-info,
-    .art-info {
-      padding: 1.2rem;
+    .card-info {
+      padding: 1.3rem;
     }
 
-    .project-info h3,
-    .art-info h3 {
-      font-size: 1.25rem;
+    .card-info h3 {
+      font-size: 1.28rem;
       margin-bottom: 0.5rem;
-      color: #1a1a1a;
+      color: #111827;
     }
 
-    .project-info .short-desc,
-    .art-info .short-desc {
-      color: #555;
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.4;
+    .card-info .short-desc {
+      color: #4b5563;
+      font-size: 0.92rem;
+      margin-bottom: 0.9rem;
     }
 
-    .project-info .role-badge,
-    .art-info .role-badge {
+    .role-badge {
       display: inline-block;
-      background: #e9f5ff;
-      color: #0066cc;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
-    /* Modal Detail Project/Art */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       z-index: 1000;
       overflow-y: auto;
       padding: 1.5rem 1rem;
@@ -140,125 +129,118 @@
 
     .modal-content {
       background: white;
-      max-width: 1000px;
-      width: 90%;
-      margin: auto;
+      width: 100%;
+      max-width: 980px;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
 
     .modal-header {
       background: #f0f4ff;
-      padding: 1.5rem;
+      padding: 1.6rem;
       text-align: center;
       position: relative;
     }
 
     .modal-header h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.9rem;
+      margin: 0;
     }
 
     .modal-close {
       position: absolute;
-      top: 1rem;
-      right: 1.2rem;
-      font-size: 2rem;
-      color: #555;
+      top: 1.2rem;
+      right: 1.4rem;
+      font-size: 2.4rem;
+      color: #4b5563;
       cursor: pointer;
       line-height: 1;
-      transition: color 0.2s;
     }
 
-    .modal-close:hover {
-      color: #000;
-    }
+    .modal-close:hover { color: #111; }
 
     .modal-body {
       padding: 2rem;
     }
 
-    .modal-body .main-img {
+    .main-img {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.8rem;
       cursor: pointer;
       transition: transform 0.3s;
     }
 
-    .modal-body .main-img:hover {
-      transform: scale(1.02);
-    }
+    .main-img:hover { transform: scale(1.015); }
 
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     }
 
     .video-container iframe {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 1.8rem 0;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: all 0.3s;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transform: scale(1.06);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .detail-item {
-      margin: 1.5rem 0;
+      margin: 1.6rem 0;
     }
 
     .detail-item h3 {
-      color: #444;
-      margin-bottom: 0.6rem;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
+      color: #374151;
+      margin-bottom: 0.7rem;
     }
 
     .tech-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin-top: 0.8rem;
     }
 
     .tech-tag {
-      background: #f1f3f5;
-      color: #495057;
-      padding: 0.4rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
+      background: #f3f4f6;
+      color: #4b5563;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
     }
 
-    /* Fullscreen Image Viewer */
+    /* Fullscreen Image */
     .fullscreen-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0,0,0,0.96);
       z-index: 2000;
       justify-content: center;
       align-items: center;
@@ -266,101 +248,93 @@
     }
 
     .fullscreen-content {
-      max-width: 90%;
-      max-height: 90%;
       position: relative;
+      max-width: 95%;
+      max-height: 95%;
     }
 
     .fullscreen-img {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 90vh;
       object-fit: contain;
     }
 
     .fullscreen-close {
       position: absolute;
-      top: -1rem;
-      right: -1rem;
-      font-size: 2.5rem;
+      top: -2rem;
+      right: -2rem;
+      font-size: 3rem;
       color: white;
       cursor: pointer;
-      line-height: 1;
     }
 
-    /* Mobile Responsiveness */
+    /* Mobile optimizations */
     @media (max-width: 768px) {
-      .profile-header { padding: 3rem 1rem 2rem; }
-      .profile-header h1 { font-size: 2rem; }
-      .profile-header .role { font-size: 1rem; }
-      .container { margin: -1rem auto 3rem; padding: 0 0.8rem; }
-      .projects-grid, .artist-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-      .project-card img, .art-card img { height: 180px; }
+      .profile-header { padding: 3.5rem 1rem 2.5rem; }
+      .container { margin: -1.8rem auto 3rem; padding: 0 0.8rem; }
+      .projects-grid, .artist-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+      .card img { height: 200px; }
       .modal { padding: 1rem 0.5rem; }
-      .modal-content { width: 95%; }
-      .modal-body { padding: 1.5rem; }
-      .gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .modal-content { width: 96%; }
+      .modal-body { padding: 1.6rem; }
+      .gallery { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     }
 
     @media (max-width: 480px) {
-      .section-header { font-size: 1.8rem; }
       .modal-header h2 { font-size: 1.6rem; }
-      .detail-item h3 { font-size: 1rem; }
+      .modal-close { font-size: 2rem; right: 1rem; top: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Profil -->
   <header class="profile-header">
     <h1>ENDAR</h1>
-    <div class="role">Full-Stack Developer, 3D Artist & VFX Enthusiast</div>
+    <div class="role">Full-Stack Developer • 3D Artist • VFX & Game Effects Creator</div>
   </header>
 
   <div class="container">
 
-    <!-- Section Projects (contoh, tambah sesuai kebutuhan) -->
+    <!-- PROJECTS -->
     <h2 class="section-header">Projects</h2>
     <div class="projects-grid">
-      <!-- Project cards seperti sebelumnya -->
-      <div class="project-card" data-modal="modal-1">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Project 1">
-        <div class="project-info">
+      <div class="card" data-modal="modal-proj-1">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop" alt="E-Commerce">
+        <div class="card-info">
           <h3>E-Commerce Fashion Platform</h3>
-          <p class="short-desc">Marketplace fashion dengan rekomendasi AI dan live selling.</p>
-          <span class="role-badge">Lead Developer</span>
+          <p class="short-desc">Marketplace dengan AI recommendation, live selling, dan multi-gateway payment.</p>
+          <span class="role-badge">Lead Full-Stack Developer</span>
         </div>
       </div>
-      <!-- Tambah lebih banyak -->
+      <!-- Tambahkan project lain di sini -->
     </div>
 
-    <!-- Section 3D Artist -->
+    <!-- 3D ARTIST -->
     <h2 class="section-header">3D Artist Portfolio</h2>
     <div class="artist-grid">
-      <!-- 3D cards seperti sebelumnya -->
-      <div class="art-card" data-modal="modal-3d-1">
-        <img src="https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=800" alt="3D Work 1">
-        <div class="art-info">
+      <div class="card" data-modal="modal-3d-1">
+        <img src="https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=800&auto=format&fit=crop" alt="Futuristic City">
+        <div class="card-info">
           <h3>Futuristic Cityscape</h3>
-          <p class="short-desc">Model kota futuristik dengan detail tinggi.</p>
-          <span class="role-badge">3D Modeler</span>
+          <p class="short-desc">High-detail cyberpunk city model with dynamic lighting & PBR textures.</p>
+          <span class="role-badge">3D Modeler & Texturer</span>
         </div>
       </div>
-      <!-- Tambah lebih banyak -->
+      <!-- Tambahkan 3D lain -->
     </div>
 
-    <!-- Section VFX -->
-    <h2 class="section-header">VFX Portfolio</h2>
+    <!-- VFX / GAME EFFECTS -->
+    <h2 class="section-header">VFX & Game Effects Portfolio</h2>
     <div class="artist-grid">
-      <!-- VFX cards seperti sebelumnya, termasuk yang dengan video -->
-      <div class="art-card" data-modal="modal-vfx-unity">
-        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="Unity VFX">
-        <div class="art-info">
+      <div class="card" data-modal="modal-vfx-unity">
+        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="Unity VFX Portfolio">
+        <div class="card-info">
           <h3>Unity Game VFX Showcase</h3>
-          <p class="short-desc">Efek visual game di Unity: particles, impacts, dll.</p>
-          <span class="role-badge">VFX Artist</span>
+          <p class="short-desc">Particle systems, impact frames, character abilities, environmental effects di Unity.</p>
+          <span class="role-badge">VFX Artist & Effects Designer</span>
         </div>
       </div>
-      <!-- Tambah lebih banyak -->
+      <!-- Tambahkan VFX lain -->
     </div>
 
   </div>
@@ -370,129 +344,130 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="modalTitle"></h2>
-        <span class="modal-close" id="closeModal">&times;</span>
+        <span class="modal-close" id="closeModal">×</span>
       </div>
       <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
-  <!-- Fullscreen Image Modal -->
+  <!-- Fullscreen Image Viewer -->
   <div id="fullscreenModal" class="fullscreen-modal">
     <div class="fullscreen-content">
-      <span class="fullscreen-close" id="closeFullscreen">&times;</span>
-      <img id="fullscreenImg" class="fullscreen-img" src="" alt="Fullscreen Image">
+      <span class="fullscreen-close" id="closeFullscreen">×</span>
+      <img id="fullscreenImg" class="fullscreen-img" src="" alt="Fullscreen">
     </div>
   </div>
 
   <script>
-    const cards = document.querySelectorAll('.project-card, .art-card');
+    const cards = document.querySelectorAll('.card');
     const modal = document.getElementById('projectModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
-    const closeModalBtn = document.getElementById('closeModal');
+    const closeModal = document.getElementById('closeModal');
 
-    const fullscreenModal = document.getElementById('fullscreenModal');
-    const fullscreenImg = document.getElementById('fullscreenImg');
-    const closeFullscreenBtn = document.getElementById('closeFullscreen');
+    const fsModal = document.getElementById('fullscreenModal');
+    const fsImg = document.getElementById('fullscreenImg');
+    const closeFs = document.getElementById('closeFullscreen');
 
-    // Data detail (sama seperti sebelumnya, tambah sesuai)
-    const detailsData = {
-      // Contoh data
+    // Data portfolio (tambah sesuai kebutuhan)
+    const portfolioData = {
       'modal-vfx-unity': {
         title: 'Unity Game VFX Showcase',
-        role: 'VFX Artist & Unity Effects Designer',
-        description: 'Showcase efek visual untuk game di Unity: skill karakter, impact frames, particles, dan lebih banyak.',
-        mainImage: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
-        videoEmbed: '<div class="video-container"><iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I?rel=0" title="Unity VFX Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+        role: 'VFX Artist & Effects Designer',
+        desc: 'Demo reel berbagai efek visual di Unity Engine: skill karakter (healing, ice slash, summon), impact frames, particle systems, lighting cinematic, dan sound integration.',
+        mainImg: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
+        video: '<div class="video-container"><iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I?rel=0" title="Unity VFX Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>',
         gallery: [
-          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600',
-          'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600'
+          'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
+          'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg',
+          'https://img.youtube.com/vi/Qt4KOrRSQ3I/2.jpg'
         ],
-        technologies: ['Unity', 'VFX Graph', 'Shader Graph', 'Particle System'],
-        achievement: 'Inspirasi untuk developer game dengan 430k+ views.'
+        tools: ['Unity Engine', 'VFX Graph', 'Shader Graph', 'Particle System', 'After Effects'],
+        achievement: '430.000+ views di YouTube • Inspirasi bagi developer game effects.'
       },
-      // Tambah data lain untuk projects, 3D, dll.
+      'modal-proj-1': {
+        title: 'E-Commerce Fashion Platform',
+        role: 'Lead Full-Stack Developer',
+        desc: 'Marketplace fashion lengkap dengan rekomendasi personal berbasis AI, live streaming penjualan, multi-gateway payment, dan dashboard seller.',
+        mainImg: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
+        gallery: [],
+        tools: ['Next.js', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'Stripe'],
+        achievement: 'Peningkatan konversi 38% dalam 4 bulan pertama.'
+      },
+      'modal-3d-1': {
+        title: 'Futuristic Cityscape',
+        role: '3D Modeler & Texturer',
+        desc: 'Model kota futuristik cyberpunk dengan gedung tinggi, neon lighting, kendaraan terbang, dan atmosfir malam.',
+        mainImg: 'https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=1200',
+        gallery: [
+          'https://images.unsplash.com/photo-1581091012184-7e0d5a25829e?w=600',
+          'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600'
+        ],
+        tools: ['Blender', 'Substance Painter', 'Unreal Engine 5'],
+        achievement: 'Dipamerkan di komunitas game indie.'
+      }
     };
 
-    // Buka modal detail
+    // Buka modal
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        const modalId = card.getAttribute('data-modal');
-        const data = detailsData[modalId];
+        const id = card.dataset.modal;
+        const data = portfolioData[id];
+        if (!data) return;
 
-        if (data) {
-          modalTitle.textContent = data.title;
+        modalTitle.textContent = data.title;
 
-          let html = `
-            <img class="main-img" src="${data.mainImage}" alt="${data.title}" data-fullscreen="${data.mainImage}">
-            <div class="detail-item">
-              <h3>Peran Saya</h3>
-              <p><strong>${data.role}</strong></p>
-            </div>
-            <div class="detail-item">
-              <h3>Deskripsi</h3>
-              <p>${data.description}</p>
-            </div>
-            ${data.videoEmbed ? `
-              <div class="detail-item">
-                <h3>Video Showcase</h3>
-                ${data.videoEmbed}
-              </div>
-            ` : ''}
+        let html = `
+          <img class="main-img" src="${data.mainImg}" alt="${data.title}" data-fs="${data.mainImg}">
+          <div class="detail-item">
+            <h3>Peran Saya</h3>
+            <p><strong>${data.role}</strong></p>
+          </div>
+          <div class="detail-item">
+            <h3>Deskripsi</h3>
+            <p>${data.desc}</p>
+          </div>
+          ${data.video ? `<div class="detail-item"><h3>Video Showcase</h3>${data.video}</div>` : ''}
+          ${data.gallery?.length ? `
             <div class="detail-item">
               <h3>Galeri Tambahan</h3>
               <div class="gallery">
-                ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image" data-fullscreen="${img}">`).join('')}
+                ${data.gallery.map(src => `<img src="${src}" alt="Gallery" data-fs="${src}">`).join('')}
               </div>
             </div>
-            <div class="detail-item">
-              <h3>Tools / Teknologi</h3>
-              <div class="tech-tags">
-                ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-              </div>
+          ` : ''}
+          <div class="detail-item">
+            <h3>Tools & Teknologi</h3>
+            <div class="tech-tags">
+              ${data.tools.map(t => `<span class="tech-tag">${t}</span>`).join('')}
             </div>
-            <div class="detail-item">
-              <h3>Pencapaian</h3>
-              <p>${data.achievement}</p>
-            </div>
-          `;
+          </div>
+          <div class="detail-item">
+            <h3>Pencapaian</h3>
+            <p>${data.achievement}</p>
+          </div>
+        `;
 
-          modalBody.innerHTML = html;
-          modal.style.display = 'block';
+        modalBody.innerHTML = html;
+        modal.style.display = 'flex';
 
-          // Tambah event listener untuk klik gambar buka fullscreen
-          const images = modalBody.querySelectorAll('img[data-fullscreen]');
-          images.forEach(img => {
-            img.addEventListener('click', () => {
-              fullscreenImg.src = img.getAttribute('data-fullscreen');
-              fullscreenModal.style.display = 'flex';
-            });
+        // Event klik gambar → fullscreen
+        modalBody.querySelectorAll('[data-fs]').forEach(img => {
+          img.addEventListener('click', () => {
+            fsImg.src = img.dataset.fs;
+            fsModal.style.display = 'flex';
           });
-        }
+        });
       });
     });
 
     // Tutup modal detail
-    closeModalBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
     // Tutup fullscreen
-    closeFullscreenBtn.addEventListener('click', () => {
-      fullscreenModal.style.display = 'none';
-    });
-
-    fullscreenModal.addEventListener('click', (e) => {
-      if (e.target === fullscreenModal) {
-        fullscreenModal.style.display = 'none';
-      }
-    });
+    closeFs.addEventListener('click', () => fsModal.style.display = 'none');
+    fsModal.addEventListener('click', e => { if (e.target === fsModal) fsModal.style.display = 'none'; });
   </script>
 </body>
 </html>
