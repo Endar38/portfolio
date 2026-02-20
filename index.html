@@ -110,6 +110,14 @@
       line-height: 1.5;
     }
 
+    .role-container {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.6rem 0.6rem; /* row-gap dan column-gap */
+     margin-top: 0.8rem;
+    }
+
+
     .role-badge {
       display: inline-block;
       background: #312e81;
@@ -182,21 +190,34 @@
     }
 
     .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin: 1.5rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .video-container iframe,
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Portrait */
+    .video-container.video-portrait {
+        aspect-ratio: 9 / 16;
+        max-width: 400px;
+        margin: 1.5rem auto;
+    }
+
+
+    .video-title {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      margin: 0.8rem 0 0.4rem;
+      text-align: center;
     }
 
     .gallery {
@@ -240,6 +261,21 @@
       padding: 0.5rem 1rem;
       border-radius: 30px;
       font-size: 0.9rem;
+    }
+
+    .role-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .role-tag {
+      background: #004146;
+      color: #94c9c3;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 1rem;
     }
 
     /* Fullscreen Image Viewer */
@@ -291,7 +327,7 @@
   <!-- Header Profil -->
   <header class="profile-header">
     <h1>ENDAR</h1>
-    <div class="role">Full-Stack Developer & UI/UX Enthusiast</div>
+    <div class="role">Game Developer & 3D Artist</div>
   </header>
 
   <div class="container">
@@ -302,15 +338,58 @@
 
       <!-- Project 1 -->
       <div class="card" data-modal="modal-proj-1">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Project 1">
+        <img src="Assets\Img\TapaTap\TapaTapCover.png" alt="Project 1">
         <div class="card-info">
-          <h3>E-Commerce Fashion Platform</h3>
-          <p class="short-desc">Marketplace fashion dengan fitur rekomendasi personal dan live selling.</p>
-          <span class="role-badge">Lead Full-Stack Developer</span>
+          <h3>TapaTap: Temu Rumah</h3>
+          <p class="short-desc">Berperan sebaggai pemandu yang mengarahkan pion ke rumah yang tepat.</p>
+            <div class="role-container">
+                <span class="role-badge">Game Designer</span>
+                <span class="role-badge">Game Programmer</span>
+            </div>
+
         </div>
       </div>
 
-      <!-- Tambahkan project lain -->
+      <!-- Project 2 -->
+      <div class="card" data-modal="modal-proj-2">
+        <img src="Assets\Img\Saltymoon\SaltymoonCover.png" alt="Project 2">
+        <div class="card-info">
+          <h3>Saltymoon: A Spice Trader Adventure</h3>
+          <p class="short-desc">Berperan sebagai pengolah dan pemasok rempah ke pulau tujuan dengan kapal ekspedisi.</p>
+            <div class="role-container">
+                <span class="role-badge">Game Programmer</span>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card" data-modal="modal-proj-3">
+        <img src="Assets\Img\DemitRace\DemitRaceCover.png" alt="Project 3">
+        <div class="card-info">
+          <h3>Demit Race: The Haunted Circuit</h3>
+          <p class="short-desc">Game balap bertema horor Indonesia.</p>
+            <div class="role-container">
+                <span class="role-badge">3D Artist</span>
+                <span class="role-badge">Technical Artist</span>
+                <span class="role-badge">Gameplay Programmer</span>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card" data-modal="modal-proj-4">
+        <img src="Assets\Img\Chochoblock\ChochoblockCover.png" alt="Project 4">
+        <div class="card-info">
+          <h3>Chochoblock: Wondis Edition</h3>
+          <p class="short-desc">Game strategi kasual tentang mengelola dan mengolah cokelat dari bahan mentah hingga produk jadi</p>
+            <div class="role-container">
+                <span class="role-badge">Game Programmer</span>
+            </div>
+
+        </div>
+      </div>
 
     </div>
 
@@ -320,15 +399,33 @@
 
       <!-- 3D Work 1 -->
       <div class="card" data-modal="modal-3d-1">
-        <img src="https://images.unsplash.com/photo-1581092580497-e2617abd4e9d?w=800" alt="3D Work 1">
+        <img src="Assets\Img\DemitRace\MobilPocong.png" alt="3D Work 1">
         <div class="card-info">
-          <h3>Futuristic Cityscape</h3>
-          <p class="short-desc">Model kota futuristik dengan detail arsitektur tinggi dan lighting dinamis.</p>
+          <h3>"Mobil Pocong" (Demit Race: The Haunted Circuit)</h3>
+          <p class="short-desc"></p>
           <span class="role-badge">3D Modeler & Texturer</span>
         </div>
       </div>
 
-      <!-- Tambahkan 3D lain -->
+       <!-- 3D Work 2 -->
+      <div class="card" data-modal="modal-3d-2">
+        <img src="Assets\Img\DemitRace\MobilBanas01.png" alt="3D Work 2">
+        <div class="card-info">
+          <h3>"Mobil Banas" (Demit Race: The Haunted Circuit)</h3>
+          <p class="short-desc"></p>
+          <span class="role-badge">3D Modeler</span>
+        </div>
+      </div>
+
+      <!-- 3D Work 3 -->
+      <div class="card" data-modal="modal-3d-3">
+        <img src="Assets\Img\DemitRace\MobilTuyul01.png" alt="3D Work 3">
+        <div class="card-info">
+          <h3>"Mobil Tuyul" (Demit Race: The Haunted Circuit)</h3>
+          <p class="short-desc"></p>
+          <span class="role-badge">3D Modeler</span>
+        </div>
+      </div>
 
     </div>
 
@@ -338,25 +435,13 @@
 
       <!-- VFX Work 1 -->
       <div class="card" data-modal="modal-vfx-1">
-        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=800" alt="VFX Work 1">
+        <img src="Assets\Img\DemitRace\Box.png" alt="VFX Work 1">
         <div class="card-info">
-          <h3>Explosion Sequence</h3>
-          <p class="short-desc">Efek ledakan realistis dengan partikel api dan debu untuk film pendek.</p>
-          <span class="role-badge">VFX Compositor & Simulator</span>
+          <h3>Item & Skill FX(Demit Race: The Haunted Circuit)</h3>
+          <p class="short-desc"></p>
+          <span class="role-badge">VFX Artistr</span>
         </div>
       </div>
-
-      <!-- VFX Work 2 (dengan video sample) -->
-      <div class="card" data-modal="modal-vfx-2">
-        <img src="https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg" alt="VFX Work 2">
-        <div class="card-info">
-          <h3>Unity Game VFX Showcase</h3>
-          <p class="short-desc">Showcase efek visual game di Unity: particles, impacts, abilities.</p>
-          <span class="role-badge">VFX Artist & Animator</span>
-        </div>
-      </div>
-
-      <!-- Tambahkan VFX lain -->
 
     </div>
 
@@ -382,149 +467,328 @@
   </div>
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModalBtn = document.getElementById('closeModal');
 
-  const cards = document.querySelectorAll('.card');
-  const modal = document.getElementById('projectModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalBody = document.getElementById('modalBody');
-  const closeModalBtn = document.getElementById('closeModal');
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenImg = document.getElementById('fullscreenImg');
+    const closeFullscreenBtn = document.getElementById('closeFullscreen');
 
-  const fullscreenModal = document.getElementById('fullscreenModal');
-  const fullscreenImg = document.getElementById('fullscreenImg');
-  const closeFullscreenBtn = document.getElementById('closeFullscreen');
+    // Data detail project/role
+    const detailsData = {
+      'modal-proj-1': {
+        title: 'TapaTap: Temu Rumah',
+        role: ['Game Designer', 'Game Programmer'],
+        description: ['- Mendesain dan mengimplementasikan keseluruhan fitur'],
+        mainImage: 'Assets/Img/TapaTap/TapaTapCover.png',
+        videos: [
+          {
+            title: 'Gameplay Trailer',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/TrailerGameplayTapaTapCmpress.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          }
+          // Tambah video lain jika ada
+        ],
+        gallery: [
+          'Assets/Img/TapaTap/DalamPermainan02.png',
+          'Assets/Img/TapaTap/DalamPermainan03.png',
+          'Assets/Img/TapaTap/Kuis.png'
+        ],
+        technologies: ['Unity'],
+        achievement: ''
+      },
+      'modal-proj-2': {
+        title: 'Saltymoon: A Spice Trader Adventure',
+        role: ['Game Programmer'],
+        description: [
+            '- Mengimplementasikan keseluruhan fitur.',
+            '- Mengintegrasikan Aset ke Unity Engine (3D, 2D, VFX, Audio)'
+        ],
+        mainImage: 'Assets/Img/Saltymoon/SaltymoonCover.png',
+        videos: [
+          {
+            title: 'Trailer Gameplay',
+            embed: `
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I" title="Trailer Saltymoon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div>
+            `
+          }
+          // Bisa tambah video kedua di sini
+        ],
+        gallery: [
+          'Assets/Img/Saltymoon/SaltymoonSS01.png',
+          'Assets/Img/Saltymoon/SaltymoonSS02.png',
+          'Assets/Img/Saltymoon/SaltymoonSS03.png'
+        ],
+        technologies: ['Unity'],
+        achievement: '3rd Place TSA GameFest 2024'
+      },
+      'modal-proj-3': {
+        title: 'Demit Race: The Haunted Circuit',
+        role: ['3D Artist', 'Vfx Artist', 'Gameplay Programmer'],
+        description: [
+            '- Membuat 3D Model dan texture mobil "Pocong"',
+            '- Membuat 3D Model mobil "Banaspati", "Kuntilanak", "Tuyul", "Buto Ijo", "Genderuwo"',
+            '- Membuat VFX "Pocong", "Banas", "Tuyul"',
+            '- Membuat VFX Item Box (missile, trap,..)',
+            '- Mengimplementasikan mekanik skill karakter',
+            '- Integrasi IK animasi karakter'
+        ],
+        mainImage: 'Assets/Img/DemitRace/DemitRaceCover.png',
+        videos: [
+          {
+            title: 'Trailer Gameplay',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/DemitRaceVid.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          }
+        ],
+        gallery: [
+          'Assets/Img/DemitRace/DemitRaceSS01.png',
+          'Assets/Img/DemitRace/DemitRaceSS02.png',
+          'Assets/Img/DemitRace/DemitRaceSS03.png'
+        ],
+        technologies: ['Unity', 'Blender', 'Substance Painter'],
+        achievement: ''
+      },
+      'modal-proj-4': {
+        title: 'Chochoblock: Wondis Edition',
+        role: ['Gameplay Programmer'],
+        description: [
+            '- Mengimplementasikan keseluruhan gameplay.',
+            '- Membuat sistem leaderboard dan mode "sesi khusus" menggunakan Playfab'
+        ],
+        mainImage: 'Assets/Img/Chochoblock/ChochoblockCover.png',
+        videos: [
+          {
+            title: 'Gameplay Portrait',
+            embed: `
+              <div class="video-container video-portrait">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/ChochoblockVid.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          }
+        ],
+        gallery: [
+          'Assets/Img/Chochoblock/ChochoblockSS01.png',
+          'Assets/Img/Chochoblock/ChochoblockSS02.png',
+          'Assets/Img/Chochoblock/ChochoblockSS03.png'
+        ],
+        technologies: ['Unity'],
+        achievement: ''
+      },
+      'modal-3d-1': {
+        title: '"Mobil Pocong" (Demit Race: The Haunted Circuit)',
+        role: ['3D Modeler & Texturer'],
+        description: [
+            '- Membuat model berdasarkan concept art.',
+            '- Bake normal highpoly ke lowpoly',
+            '- Membuat texture'
+        ],
+        mainImage: 'Assets/Img/DemitRace/MobilPocong.png',
+        videos: [], // bisa tambah video jika ada
+        gallery: [
+          'Assets/Img/DemitRace/MobilPocongHigh01.png',
+          'Assets/Img/DemitRace/MobilPocongWire1.png',
+          'Assets/Img/DemitRace/MobilPocongWire2.png'
+        ],
+        technologies: ['Blender', 'Substance Painter'],
+        achievement: ''
+      },
+      'modal-3d-2': {
+        title: '"Mobil Banas" (Demit Race: The Haunted Circuit)',
+        role: ['3D Modeler'],
+        description: [
+            '- Membuat model berdasarkan concept art.',
+            '- Bake normal highpoly ke lowpoly',
+        ],
+        mainImage: 'Assets/Img/DemitRace/MobilBanas01.png',
+        videos: [],
+        gallery: [],
+        technologies: ['Blender'],
+        achievement: ''
+      },
+      'modal-3d-3': {
+        title: '"Mobil Tuyul" (Demit Race: The Haunted Circuit)',
+        role: ['3D Modeler'],
+        description: [
+            '- Membuat model berdasarkan concept art.',
+            '- Bake normal highpoly ke lowpoly',
+        ],
+        mainImage: 'Assets/Img/DemitRace/MobilTuyul01.png',
+        videos: [],
+        gallery: [],
+        technologies: ['Blender'],
+        achievement: ''
+      },
+      'modal-vfx-1': {
+        title: 'Item & Skill (Demit Race: The Haunted Circuit)',
+        role: ['VFX Artist'],
+        description: [''],
+        mainImage: 'Assets/Img/DemitRace/Box.png',
+        videos: [
+          {
+            title: 'Item Box & Skill Effects',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/BoxVid.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          },
+          {
+            title: '',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/Shield&MissileFXVid.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          },
+          {
+            title: '',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/PocSkill.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          },
+          {
+            title: '',
+            embed: `
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="Assets/Video/BanasSkillVid.mp4" type="video/mp4">
+                  Browser Anda tidak mendukung video tag.
+                </video>
+              </div>
+            `
+          }
+          /*{
+            title: 'Reference Unity VFX',
+            embed: `
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Qt4KOrRSQ3I" title="Reference Unity VFX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div>
+            `
+          }*/
+        ],
+        gallery: [
+          'Assets/Img/DemitRace/ShieldFX.png'
+        ],
+        technologies: ['Blender', 'Photoshop', 'Shader Graph', 'VFX Graph'],
+        achievement: ''
+      },
+    };
 
-  // ===============================
-  // DATA PROJECT
-  // ===============================
-  const detailsData = {
-    'modal-proj-1': {
-      title: 'E-Commerce Fashion Platform',
-      role: 'Lead Full-Stack Developer',
-      description: 'Membangun marketplace fashion modern dengan fitur rekomendasi berbasis AI, live streaming penjualan, sistem pembayaran multiple gateway, dan dashboard penjual yang powerful.',
-      mainImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
-      gallery: [
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600',
-        'https://images.unsplash.com/photo-1551650975-60cb5c8b0c7e?w=600'
-      ],
-      technologies: ['Next.js', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL', 'Redis'],
-      achievement: 'Meningkatkan konversi 38% dalam 4 bulan pertama setelah launch.'
-    },
+    // Buka modal
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        const modalId = this.getAttribute('data-modal');
+        const data = detailsData[modalId];
 
-    'modal-vfx-2': {
-      title: 'Unity Game VFX Showcase',
-      role: 'VFX Artist & Animator',
-      description: 'Showcase efek visual game di Unity, termasuk particle systems, impact frames, character abilities seperti healing dan summon, dengan timing cinematic.',
-      mainImage: 'https://img.youtube.com/vi/Qt4KOrRSQ3I/maxresdefault.jpg',
-      videoEmbed: `
-        <div class="video-container">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/Qt4KOrRSQ3I"
-            title="Unity VFX Portfolio"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      `,
-      gallery: [
-        'https://img.youtube.com/vi/Qt4KOrRSQ3I/0.jpg',
-        'https://img.youtube.com/vi/Qt4KOrRSQ3I/1.jpg',
-        'https://img.youtube.com/vi/Qt4KOrRSQ3I/2.jpg'
-      ],
-      technologies: ['Unity', 'VFX Graph', 'Shader Graph', 'Particle System', 'After Effects'],
-      achievement: 'Mendapat 430k+ views di YouTube, inspirasi untuk developer game.'
-    }
-  };
+        if (data) {
+          modalTitle.textContent = data.title;
+          
+          let html = `
+            <img class="main-img" src="${data.mainImage}" alt="${data.title}">
+            <div class="detail-item">
+                <h3>Role</h3>
+                    <div class="role-tags">
+                    ${data.role.map(r => `<span class="role-tag">${r}</span>`).join('')}
+                </div>
+            </div>
 
-  // ===============================
-  // OPEN MODAL
-  // ===============================
-  cards.forEach(card => {
-    card.addEventListener('click', function () {
-      const modalId = this.dataset.modal;
-      const data = detailsData[modalId];
+            <div class="detail-item">
+            <h3>Deskripsi</h3>
+            <p>${data.description.join("<br>")}</p>
+            </div>
 
-      if (!data) return;
+            ${data.videos && data.videos.length > 0 ? `
+              <div class="detail-item">
+                <h3>Video Showcase</h3>
+                ${data.videos.map(v => `
+                  ${v.title ? `<div class="video-title">${v.title}</div>` : ''}
+                  ${v.embed}
+                `).join('')}
+              </div>
+            ` : ''}
 
-      modalTitle.textContent = data.title;
+            <div class="detail-item">
+              <h3> </h3>
+              <div class="gallery">
+                ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image">`).join('')}
+              </div>
+            </div>
+            <div class="detail-item">
+              <h3>Software</h3>
+              <div class="tech-tags">
+                ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+              </div>
+            </div>
+            <div class="detail-item">
+              <h3> </h3>
+              <p>${data.achievement}</p>
+            </div>
+          `;
 
-      let html = `
-        <img class="main-img" src="${data.mainImage}" alt="${data.title}">
-        <div class="detail-item">
-          <h3>Peran Saya</h3>
-          <p><strong>${data.role}</strong></p>
-        </div>
-        <div class="detail-item">
-          <h3>Deskripsi Project</h3>
-          <p>${data.description}</p>
-        </div>
-      `;
+          modalBody.innerHTML = html;
+          modal.style.display = 'flex';
 
-      if (data.videoEmbed) {
-        html += `
-          <div class="detail-item">
-            <h3>Video Showcase</h3>
-            ${data.videoEmbed}
-          </div>
-        `;
-      }
-
-      html += `
-        <div class="detail-item">
-          <h3>Galeri Tambahan</h3>
-          <div class="gallery">
-            ${data.gallery.map(img => `<img src="${img}" alt="Gallery Image">`).join('')}
-          </div>
-        </div>
-        <div class="detail-item">
-          <h3>Teknologi yang Digunakan</h3>
-          <div class="tech-tags">
-            ${data.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-          </div>
-        </div>
-        <div class="detail-item">
-          <h3>Pencapaian Utama</h3>
-          <p>${data.achievement}</p>
-        </div>
-      `;
-
-      modalBody.innerHTML = html;
-      modal.style.display = 'flex';
-
-      // Fullscreen Image Handler
-      const images = modalBody.querySelectorAll('.main-img, .gallery img');
-      images.forEach(img => {
-        img.addEventListener('click', () => {
-          fullscreenImg.src = img.src;
-          fullscreenModal.style.display = 'flex';
-        });
+          // Klik gambar buka fullscreen
+          const images = modalBody.querySelectorAll('.main-img, .gallery img');
+          images.forEach(img => {
+            img.addEventListener('click', () => {
+              fullscreenImg.src = img.src;
+              fullscreenModal.style.display = 'flex';
+            });
+          });
+        }
       });
     });
-  });
 
-  // ===============================
-  // CLOSE MODAL
-  // ===============================
-  closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  closeFullscreenBtn.addEventListener('click', () => {
-    fullscreenModal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
+    // Tutup modal
+    closeModalBtn.addEventListener('click', () => {
       modal.style.display = 'none';
-    }
-    if (e.target === fullscreenModal) {
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+      if (e.target === fullscreenModal) {
+        fullscreenModal.style.display = 'none';
+      }
+    });
+
+    closeFullscreenBtn.addEventListener('click', () => {
       fullscreenModal.style.display = 'none';
-    }
-  });
-
-});
-</script>
-
+    });
+  </script>
 </body>
 </html>
